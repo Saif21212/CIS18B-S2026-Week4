@@ -1,9 +1,13 @@
-package edu.norcocollege.cis18b.weekx.mini04;
+public void validate(Alert alert) throws InvalidAlertException {
+    if (alert == null) {
+        throw new InvalidAlertException("Alert cannot be null.");
+    }
 
-public class AlertValidator {
-    public void validate(Alert alert) throws InvalidAlertException {
-        // TODO: Throw if alert is null.
-        // TODO: Throw if alert message is null or blank.
-        // TODO: Throw if alert level is null.
+    if (alert.getMessage() == null || alert.getMessage().isBlank()) {
+        throw new InvalidAlertException("Message cannot be empty.");
+    }
+
+    if (alert.getLevel() == null) {
+        throw new InvalidAlertException("Alert level cannot be null.");
     }
 }
