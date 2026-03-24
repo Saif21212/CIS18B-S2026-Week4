@@ -1,17 +1,32 @@
-package edu.norcocollege.cis18b.weekx.mini08;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class AlertService {
-    private final List<AlertObserver> observers = new ArrayList<>();
 
+    private List<AlertObserver> observers = new ArrayList<>();
+
+    // Add observer
     public void addObserver(AlertObserver observer) {
-        // TODO: Add the observer to the list.
+        observers.add(observer);
     }
 
-    public void processAlert(Alert alert) {
-        System.out.println("Processing alert: " + alert.message());
-        // TODO: Notify all observers.
+    // Remove observer
+    public void removeObserver(AlertObserver observer) {
+        observers.remove(observer);
+    }
+
+    // Notify all observers
+    private void notifyObservers(Alert alert) {
+        for (AlertObserver observer : observers) {
+            observer.onAlert(alert);
+        }
+    }
+
+    // Process alert and notify
+    public void process(Alert alert) {
+        System.out.println("Processing alert: " + alert.getMessage());
+
+        // Notify observers
+        notifyObservers(alert);
     }
 }
