@@ -1,5 +1,10 @@
-package edu.norcocollege.cis18b.weekx.mini06;
+public void saveAlert(Alert alert) throws AlertStorageException {
+    try {
+        // Simulate a failure (like database error)
+        throw new RuntimeException("Database connection failed");
 
-public interface AlertRepository {
-    void save(Alert alert) throws AlertStorageException;
+    } catch (RuntimeException ex) {
+        // Translate to custom exception
+        throw new AlertStorageException("Failed to save alert", ex);
+    }
 }
