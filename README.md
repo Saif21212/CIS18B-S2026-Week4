@@ -611,3 +611,15 @@ Answer the following:
 2. When should you create a custom exception?
 3. Why is exception translation useful in layered systems?
 4. How can the Observer pattern improve error reporting?
+
+1. What is the difference between checked and unchecked exceptions?
+Checked exceptions must be handled or declared using throws, and they are checked at compile time (e.g., IOException). Unchecked exceptions occur at runtime and do not need to be explicitly handled (e.g., NullPointerException).
+
+2. When should you create a custom exception?
+A custom exception should be created when you need to represent a specific error in your application that is not covered by standard Java exceptions, making the code more meaningful and easier to understand.
+
+3. Why is exception translation useful in layered systems?
+Exception translation allows low-level exceptions to be converted into higher-level, more meaningful exceptions. This keeps layers independent and makes error handling clearer and easier to manage.
+
+4. How can the Observer pattern improve error reporting?
+The Observer pattern allows multiple components (like logging systems or notification services) to be notified when an error occurs, improving flexibility and making it easier to handle errors in different ways.
